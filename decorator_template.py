@@ -16,18 +16,3 @@ def timer(func):
         return value
 
     return _timer
-
-
-def trace(func):
-    """Trace decorator """
-
-    @functools.wraps(func)
-    def _trace(*args, **kwargs):
-        """The timer function replacing the original"""
-        # do something before
-        value = func(*args, **kwargs)
-        # do something after
-        print(f'this is printing')
-        return value
-
-    return _trace
