@@ -1,5 +1,5 @@
 import random
-from decorator_template import trace, timer
+from decorator_template import trace, timer, count_calls
 
 
 GREETINGS = ["Heisann", "Hi there", "Ni!"]
