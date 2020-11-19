@@ -2,6 +2,14 @@
 import functools
 import time
 
+REGISTERED = {}
+
+
+def register(func):
+    """Register a function"""
+    REGISTERED[func.__name__] = func
+    return func
+
 
 def timer(func):
     """Timing how long function takes to run"""
