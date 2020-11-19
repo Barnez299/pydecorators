@@ -16,3 +16,26 @@ def timer(func):
         return value
 
     return _timer
+
+
+# tracer decorator
+
+def trace(func):
+    """Trace decorator """
+    name = func.__name__
+
+
+    @functools.wraps(func)
+    def _trace(*args, **kwargs):
+        """The timer function replacing the original"""
+        # do something before
+        args_repr = [repr(a) for a in args]
+        kwargs_repr = [f"{k}={v!r}" for k,v in kwargs.items()]
+        signature = ','.join(args_repr + kwargs_repr)
+        print(f"Calling {name} ({signature})")
+        value = func(*args, **kwargs)
+        # do something after
+        print(f"Calling {name} returned {value !r}")
+        return value
+
+    return _trace
